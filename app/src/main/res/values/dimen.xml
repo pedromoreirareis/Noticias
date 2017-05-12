@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Margens -->
+    <dimen name="margem_16">16dp</dimen>
+    <dimen name="margem_8">8dp</dimen>
+
+    <!-- view_card -->
+    <dimen name="radius_16">16dp</dimen>
+    <dimen name="radius_8">8dp</dimen>
+    <dimen name="elevation_16">16dp</dimen>
+    <dimen name="elevation_8">8dp</dimen>
+
+
+
+</resources>

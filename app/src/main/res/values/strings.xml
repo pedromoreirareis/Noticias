@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Noticias</string>
+
+
+    <!-- Layout Recyclerview -->
+    <string name="imageDescription">Imagem referente à notícia</string>
+
+    <!-- Nome dos Fragmentos -->
+    <string name="frag_ultimas">Ultimas</string>
+    <string name="frag_tecnologia">Tecnologias</string>
+</resources>
