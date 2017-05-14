@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Esse array irá pegar os dados do Strings config_orderby
+         e montar uma lista para exibir no ListPrefrence-->
+
+    <array name="config_orderby_labels">
+        <item>@string/config_orderby_newest_label</item>
+        <item>@string/config_orderby_oldest_label</item>
+        <item>@string/config_orderby_relevance_label</item>
+    </array>
+    <array name="config_orderby_values">
+        <item>@string/config_orderby_newest_value</item>
+        <item>@string/config_orderby_oldest_value</item>
+        <item>@string/config_orderby_relevance_value</item>
+    </array>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- page-size - quantidade de noticias por pagina -->
+    <!-- Tipo de entrada - Numeros -->
+    <EditTextPreference
+        android:defaultValue="@string/config_pagesize_default"
+        android:icon="@drawable/ic_quantity_list"
+        android:inputType="number"
+        android:key="@string/config_pagesize_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/config_pagesize_label" />
+
+    <!-- order-by - Busca resultados na ordem especificada -->
+    <ListPreference
+        android:defaultValue="@string/config_orderby_defalut"
+        android:entries="@array/config_orderby_labels"
+        android:entryValues="@array/config_orderby_values"
+        android:icon="@drawable/ic_order_by"
+        android:key="@string/config_orderby_key"
+        android:title="@string/config_orderby_label" />
+
+</PreferenceScreen>

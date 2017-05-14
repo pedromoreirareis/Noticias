@@ -73,6 +73,7 @@ public class ExtrairJSON {
                      */
                     JSONObject fieldsObj = noticiaAtual.getJSONObject("fields");
 
+                    //TODO para html
                     // Resumo da noticia
                     String trailText = fieldsObj.getString("trailText");
 
@@ -99,6 +100,6 @@ public class ExtrairJSON {
             e.printStackTrace();
         }
 
-        return null;
+        return noticiasList;
     }
 }

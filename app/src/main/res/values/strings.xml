@@ -8,4 +8,33 @@
     <!-- Nome dos Fragmentos -->
     <string name="frag_ultimas">Ultimas</string>
     <string name="frag_tecnologia">Tecnologias</string>
+
+
+    <!-- PreferenceScreen - Page Size - Default 40 -->
+    <string name="config_pagesize_label">Notícias por página</string>
+    <string name="config_pagesize_key">page-size</string>
+    <string name="config_pagesize_default">50</string>
+
+    <!-- PreferenceScreen - order-by - Default newest
+    É necessário um array para colocar essa configurações juntas -->
+    <string name="config_orderby_label">Ordenar por</string>
+    <string name="config_orderby_key">order-by</string>
+    <string name="config_orderby_defalut">@string/config_orderby_newest_value</string>
+
+    <!-- PreferenceScreen - order-by - label newest -->
+    <string name="config_orderby_newest_label">Mais recentes</string>
+    <string name="config_orderby_newest_value">newest</string>
+
+    <!-- PreferenceScreen - order-by - label oldest -->
+    <string name="config_orderby_oldest_label">Mais antigas</string>
+    <string name="config_orderby_oldest_value">oldest</string>
+
+    <!-- PreferenceScreen - order-by - label relevance -->
+    <string name="config_orderby_relevance_label">Relevância</string>
+    <string name="config_orderby_relevance_value">relevance</string>
+
+
+    <!-- Menus -->
+    <string name="menu_pesquisa_title">Pesquisar</string>
+    <string name="menu_config_title">Configurações</string>
 </resources>

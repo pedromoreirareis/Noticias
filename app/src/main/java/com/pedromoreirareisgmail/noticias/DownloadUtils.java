@@ -15,14 +15,16 @@ import java.util.List;
 public class DownloadUtils {
 
     private static final String TAG = DownloadUtils.class.getSimpleName();
-    private static final String URL_SOLICITACAO =
-            "http://content.guardianapis.com/search?show-fields=trailText%2Cthumbnail&page-size=20&api-key=717bb387-af84-40dd-ab02-4cbc8ceec742";
 
     // TODO: URL REQUISICAO - parte é aqui parte é do fragmento solicitante - DownloadASyncTaks entrada Url Resquisicao
 
-    public static List<Noticias> DownloadASyncTask() {
+    public static List<Noticias> DownloadASyncTask(String urlSolicitacao) {
 
-        URL urlDownload = createUrl(URL_SOLICITACAO);
+        if (urlSolicitacao == null) {
+            return null;
+        }
+
+        URL urlDownload = createUrl(urlSolicitacao);
 
         // Vai receber os dados da solicitação
         String dadosJSON = "";
