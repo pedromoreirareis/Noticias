@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-
         return true;
     }
 
@@ -41,14 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        // Cria o AdapterPage - Cria um suporte ao gerenciador de fragmentos para pagina
         AdapterPage adapterPage = new AdapterPage(this,getSupportFragmentManager());
 
-        // Cria refrencia a pagina
         ViewPager pagina = mBinding.vpPagina;
         pagina.setAdapter(adapterPage);
 
-        // Cria referecia ao TabLayout
         TabLayout tabLayout = mBinding.tbTab;
         tabLayout.setupWithViewPager(pagina);
     }
@@ -59,10 +54,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentConfig);
         return true;
     }
-
-    private Boolean abrirSearch() {
-        return true;
-    }
-
-
 }

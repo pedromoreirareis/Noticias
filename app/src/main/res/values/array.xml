@@ -14,4 +14,14 @@
         <item>@string/config_orderby_oldest_value</item>
         <item>@string/config_orderby_relevance_value</item>
     </array>
+
+    <array name="config_pagesize_quant">
+        <item>@string/config_pagesize_quant_cinco</item>
+        <item>@string/config_pagesize_quant_dez</item>
+        <item>@string/config_pagesize_quant_vinte</item>
+        <item>@string/config_pagesize_quant_trinta</item>
+        <item>@string/config_pagesize_quant_quarenta</item>
+        <item>@string/config_pagesize_quant_cinquenta</item>
+    </array>
+
 </resources>

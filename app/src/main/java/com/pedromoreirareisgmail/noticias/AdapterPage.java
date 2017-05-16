@@ -7,62 +7,69 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class AdapterPage extends FragmentPagerAdapter {
 
-    private Context mContext;
+    private final Context mContext;
 
-    /**
-     * Construtor
-     *
-     * @param context contexto onde a pagina sera implementada
-     * @param fm      gerenciador de paginas
-     */
+    // Construtor
     public AdapterPage(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
     }
 
-
-    /**
-     * Esse método pode ser chamado pelo ViewPager para obter uma
-     * seqüência de título para descrever a página especificada.
-     * Este método pode retornar null indicando nenhum título para
-     * esta página. A implementação padrão retorna null.
-     *
-     * @param position A posição do título solicitado
-     * @return Um título para a página solicitada
-     */
+    // Recebe caracteres e passa como titulo para uma pagina
     @Override
     public CharSequence getPageTitle(int position) {
-        if (position == 0) {
-            return mContext.getString(R.string.frag_ultimas);
-        } else {
-            return mContext.getString(R.string.frag_tecnologia);
+
+        String titulo = "";
+        switch (position) {
+            case 0:
+                titulo = mContext.getString(R.string.frag_ultimas);
+                break;
+            case 1:
+                titulo = mContext.getString(R.string.frag_tecnologia);
+                break;
+            case 2:
+                titulo = mContext.getString(R.string.frag_money);
+                break;
+            case 3:
+                titulo = mContext.getString(R.string.frag_business);
+                break;
+            case 4:
+                titulo = mContext.getString(R.string.frag_banking);
+                break;
+            case 5:
+                titulo = mContext.getString(R.string.frag_brasil);
+                break;
+            case 6:
+                titulo = mContext.getString(R.string.frag_football);
+                break;
         }
+        return titulo;
     }
 
-
-    /**
-     * Atribui uma pagina a uma posição especifica
-     *
-     * @param position posição de uma pagina
-     * @return Retorna o Fragmento associado a uma posição especificada.
-     */
+    // Cria um fragmento em uma posição especificada
     @Override
     public Fragment getItem(int position) {
+
         if (position == 0) {
             return new UltimasFragment();
-        } else {
+        } else if (position == 1) {
             return new TecnologiaFragment();
+        } else if (position == 2) {
+            return new MoneyFragment();
+        } else if (position == 3) {
+            return new BusinessFragment();
+        } else if (position == 4) {
+            return new BankingFragment();
+        } else if (position == 5) {
+            return new BrasilFragment();
+        } else {
+            return new FootBallFragment();
         }
     }
 
-
-    /**
-     * Especifica a quantidade de pagina a ser visualizada
-     *
-     * @return Retorna o número de visualizações disponíveis
-     */
+    // Retorna a quantidade de paginas a ser criada
     @Override
     public int getCount() {
-        return 2;
+        return 7;
     }
 }

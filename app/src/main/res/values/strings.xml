@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Noticias</string>
 
+    <!-- String mensagens -->
+    <string name="sem_internet">Não há conexão com a internet</string>
+    <string name="sem_dados">A pesquisa não retornou dados</string>
+
 
     <!-- Layout Recyclerview -->
     <string name="imageDescription">Imagem referente à notícia</string>
@@ -8,12 +12,26 @@
     <!-- Nome dos Fragmentos -->
     <string name="frag_ultimas">Ultimas</string>
     <string name="frag_tecnologia">Tecnologias</string>
+    <string name="frag_banking">Bankig</string>
+    <string name="frag_business">Businnes</string>
+    <string name="frag_football">FootBall</string>
+    <string name="frag_brasil">Brasil</string>
+    <string name="frag_money">Money</string>
 
 
-    <!-- PreferenceScreen - Page Size - Default 40 -->
+    <!-- PreferenceScreen - Page Size - Default 10 -->
     <string name="config_pagesize_label">Notícias por página</string>
     <string name="config_pagesize_key">page-size</string>
-    <string name="config_pagesize_default">50</string>
+    <string name="config_pagesize_default">10</string>
+
+    <!-- PreferenceScreen - Page Size -->
+    <string name="config_pagesize_quant_cinco">5</string>
+    <string name="config_pagesize_quant_dez">10</string>
+    <string name="config_pagesize_quant_vinte">20</string>
+    <string name="config_pagesize_quant_trinta">30</string>
+    <string name="config_pagesize_quant_quarenta">40</string>
+    <string name="config_pagesize_quant_cinquenta">50</string>
+
 
     <!-- PreferenceScreen - order-by - Default newest
     É necessário um array para colocar essa configurações juntas -->
@@ -33,8 +51,8 @@
     <string name="config_orderby_relevance_label">Relevância</string>
     <string name="config_orderby_relevance_value">relevance</string>
 
-
     <!-- Menus -->
     <string name="menu_pesquisa_title">Pesquisar</string>
     <string name="menu_config_title">Configurações</string>
+
 </resources>

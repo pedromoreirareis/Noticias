@@ -21,17 +21,18 @@ import com.pedromoreirareisgmail.noticias.databinding.ContainerRecyclerviewBindi
 import java.util.ArrayList;
 import java.util.List;
 
-public class TecnologiaFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
+public class BankingFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
 
-    private static final int LOADER_ID = 1;
+    private static final int LOADER_ID = 2;
     private ContainerRecyclerviewBinding mBinding;
     private int mPaginaAtual = 1;
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
 
-    public TecnologiaFragment() {
+    public BankingFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,16 +64,17 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
 
         mAdapter.setRecyclerViewOnClick(this);
         recyclerView.setAdapter(mAdapter);
-        
+
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
         return mBinding.getRoot();
+
     }
 
     @Override
     public Loader<List<Noticias>> onCreateLoader(int id, Bundle args) {
         String page = String.valueOf(mPaginaAtual);
-        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_tecnologia)));
+        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_banking)));
     }
 
     @Override
@@ -85,7 +87,6 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
             TextView tvMensagem = mBinding.tvMensagem;
             tvMensagem.setText(getString(R.string.sem_dados));
         }
-
     }
 
     public void restartLoader() {

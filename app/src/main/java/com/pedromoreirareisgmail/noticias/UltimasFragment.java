@@ -1,6 +1,8 @@
 package com.pedromoreirareisgmail.noticias;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -18,79 +20,100 @@ import com.pedromoreirareisgmail.noticias.databinding.ContainerRecyclerviewBindi
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class UltimasFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>> {
+public class UltimasFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
 
     private static final int LOADER_ID = 0;
-    public static ContainerRecyclerviewBinding mBinding;
-
+    private ContainerRecyclerviewBinding mBinding;
+    private int mPaginaAtual = 1;
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
-    private RecyclerView mRecyclerView;
-
 
     public UltimasFragment() {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        // infla o layout container
         mBinding = DataBindingUtil.inflate(inflater, R.layout.container_recyclerview, container, false);
 
-        Utils.progressBarEstado(getContext(), true);
+        Utils.progressBarEstado(true, mBinding);
 
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
 
-        mRecyclerView = mBinding.rvList;
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(mAdapter);
+        final RecyclerView recyclerView = mBinding.rvList;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 
-        // Verifica se tem internet
+                LinearLayoutManager llm = (LinearLayoutManager) recyclerView.getLayoutManager();
+
+                if (mNoticias.size() == llm.findLastCompletelyVisibleItemPosition() + 1) {
+
+                    mPaginaAtual = mPaginaAtual + 1;
+                    restartLoader();
+                    Utils.progressBarEstado(true, mBinding);
+                }
+            }
+        });
+
+        mAdapter.setRecyclerViewOnClick(this);
+
+        recyclerView.setAdapter(mAdapter);
+
         if (Utils.temInternet(getContext())) {
             getLoaderManager().initLoader(LOADER_ID, null, this);
         } else {
-            Utils.progressBarEstado(getContext(), false);
+            Utils.progressBarEstado(false, mBinding);
             TextView tvMensagem = mBinding.tvMensagem;
-            tvMensagem.setText("Sem Internet");
+            tvMensagem.setText(getString(R.string.sem_internet));
         }
-
-
-        // TODO se pesquisa tiver dados apresenta se nao mostrar mensagem que não tem dados
-
-
-        // TODO Metodo separado para fazer update da tela
-
 
         return mBinding.getRoot();
     }
 
-
     @Override
     public Loader<List<Noticias>> onCreateLoader(int id, Bundle args) {
 
-        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(getContext(), getString(R.string.frag_ultimas)));
+        String page = String.valueOf(mPaginaAtual);
+        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_ultimas)));
     }
 
     @Override
     public void onLoadFinished(Loader<List<Noticias>> loader, List<Noticias> data) {
 
-        mNoticias.addAll(data);
-        mAdapter.notifyDataSetChanged();
-        Utils.progressBarEstado(getContext(), false);
+        if (data != null) {
+            mNoticias.addAll(data);
+            mAdapter.notifyDataSetChanged();
+            Utils.progressBarEstado(false, mBinding);
+        } else {
+            TextView tvMensagem = mBinding.tvMensagem;
+            tvMensagem.setText(getString(R.string.sem_dados));
+        }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Noticias>> loader) {
     }
 
+    public void restartLoader() {
+        getLoaderManager().restartLoader(LOADER_ID, null, this);
+    }
 
+    @Override
+    public void OnClickListener(int position) {
+
+        final Noticias noticiaAtual = mNoticias.get(position);
+        String url = noticiaAtual.getmWebUrl();
+        Uri webUrl = Uri.parse(url);
+
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, webUrl);
+        if (webIntent.resolveActivity(getContext().getPackageManager()) != null) {
+            getContext().startActivity(webIntent);
+        }
+    }
 }

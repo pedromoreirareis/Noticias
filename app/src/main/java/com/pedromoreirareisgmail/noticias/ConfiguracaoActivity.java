@@ -8,12 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 
 public class ConfiguracaoActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracao);
-
     }
 
     public static class ConfiguracoesFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
@@ -27,8 +25,6 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.configuracoes);
-
-
         }
     }
 }
