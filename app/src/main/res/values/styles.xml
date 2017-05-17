@@ -25,7 +25,7 @@
         <item name="android:clickable">true</item>
         <item name="cardCornerRadius">@dimen/radius_16</item>
         <item name="cardElevation">@dimen/elevation_16</item>
-        <item name="cardBackgroundColor">?android:selectableItemBackground</item>
+        <item name="android:background">?android:selectableItemBackground</item>
     </style>
 
     <style name="styleImagem">
@@ -48,8 +48,8 @@
     <style name="styleResumo" parent="TextAppearance.AppCompat.Caption">
         <item name="android:ellipsize">end</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:maxLines">4</item>
-        <item name="android:lines">4</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:lines">3</item>
         <item name="android:paddingTop">@dimen/margem_4</item>
         <item name="android:paddingLeft">@dimen/margem_16</item>
         <item name="android:paddingRight">@dimen/margem_16</item>
@@ -61,8 +61,10 @@
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textStyle">italic</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingLeft">@dimen/margem_16</item>
+        <item name="android:paddingRight">@dimen/margem_16</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
     </style>
 

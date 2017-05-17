@@ -16,6 +16,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
                 android:orientation="vertical">
 
                 <ImageView
@@ -24,6 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/imageDescription"
+                    android:foreground="@drawable/forenground_imagem"
                     tools:src="@drawable/servidor" />
 
                 <LinearLayout
@@ -51,21 +53,28 @@
                         android:layout_height="wrap_content"
                         tools:text="Firm investigating illicit activity identifies three associated bitcoin addresses but can’t trace individuals before funds are withdrawn" />
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/background_datahora"
                         android:orientation="horizontal"
-                        android:paddingBottom="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
-                        android:paddingTop="8dp">
+                        android:paddingBottom="@dimen/margem_8"
+                        android:paddingTop="@dimen/margem_8">
+
 
                         <TextView
                             android:id="@+id/tv_section"
                             style="@style/styleDataHora"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:layout_weight="4"
+                            android:gravity="start|center"
                             tools:text="Technology" />
 
                         <TextView
@@ -73,8 +82,9 @@
                             style="@style/styleDataHora"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_weight="3"
+                            android:gravity="center|end"
                             tools:text="16/05/2017" />
 
                         <TextView
@@ -82,9 +92,11 @@
                             style="@style/styleDataHora"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="end"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:gravity="end|center"
                             tools:text="23:06" />
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

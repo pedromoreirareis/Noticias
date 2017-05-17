@@ -22,25 +22,25 @@ public class AdapterPage extends FragmentPagerAdapter {
         String titulo = "";
         switch (position) {
             case 0:
-                titulo = mContext.getString(R.string.frag_ultimas);
+                titulo = mContext.getString(R.string.frag_ultimas_tab);
                 break;
             case 1:
-                titulo = mContext.getString(R.string.frag_tecnologia);
+                titulo = mContext.getString(R.string.frag_tecnologia_tab);
                 break;
             case 2:
-                titulo = mContext.getString(R.string.frag_money);
+                titulo = mContext.getString(R.string.frag_money_tab);
                 break;
             case 3:
-                titulo = mContext.getString(R.string.frag_business);
+                titulo = mContext.getString(R.string.frag_business_tab);
                 break;
             case 4:
-                titulo = mContext.getString(R.string.frag_banking);
+                titulo = mContext.getString(R.string.frag_banking_tab);
                 break;
             case 5:
-                titulo = mContext.getString(R.string.frag_brasil);
+                titulo = mContext.getString(R.string.frag_brasil_tab);
                 break;
             case 6:
-                titulo = mContext.getString(R.string.frag_football);
+                titulo = mContext.getString(R.string.frag_football_tab);
                 break;
         }
         return titulo;

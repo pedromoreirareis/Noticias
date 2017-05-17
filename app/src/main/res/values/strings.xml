@@ -18,6 +18,14 @@
     <string name="frag_brasil">Brasil</string>
     <string name="frag_money">Money</string>
 
+    <string name="frag_ultimas_tab">Últimas</string>
+    <string name="frag_tecnologia_tab">Tecnologias</string>
+    <string name="frag_banking_tab">Bancos</string>
+    <string name="frag_business_tab">Negócios</string>
+    <string name="frag_football_tab">Futebol</string>
+    <string name="frag_brasil_tab">Brasil</string>
+    <string name="frag_money_tab">Dinheiro</string>
+
 
     <!-- PreferenceScreen - Page Size - Default 10 -->
     <string name="config_pagesize_label">Notícias por página</string>

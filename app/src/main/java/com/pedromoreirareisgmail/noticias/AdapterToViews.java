@@ -45,7 +45,7 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         final Noticias noticiaAtual = mLista.get(position);
 
@@ -125,7 +125,6 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
             if (itemView.getId() == R.id.cv_container) {
                 mRecyclerViewOnClick.OnClickListener(getAdapterPosition());
             }
-
         }
     }
 }

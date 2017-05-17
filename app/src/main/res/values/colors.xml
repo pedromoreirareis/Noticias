@@ -4,10 +4,15 @@
     <color name="colorPrimaryDark">#1976D2</color>
     <color name="colorAccent">#2196F3</color>
 
+
     <!-- TabLayout -->
     <color name="tabIndicatorColor">#FFFFFF</color>
     <color name="tabSelectColor">#FFFFFF</color>
+    <color name="tabNoSelectColor">#B3E5FC</color>
 
     <!-- TextView Titulo -->
     <color name="colorTitulo">#000000</color>
+
+    <!-- Data Hora -->
+    <color name="corBrancoDataHora">#FFFFFF</color>
 </resources>
