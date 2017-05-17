@@ -12,8 +12,8 @@
     <!-- Nome dos Fragmentos -->
     <string name="frag_ultimas">Ultimas</string>
     <string name="frag_tecnologia">Tecnologias</string>
-    <string name="frag_banking">Bankig</string>
-    <string name="frag_business">Businnes</string>
+    <string name="frag_banking">Banking</string>
+    <string name="frag_business">Business</string>
     <string name="frag_football">FootBall</string>
     <string name="frag_brasil">Brasil</string>
     <string name="frag_money">Money</string>

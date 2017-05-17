@@ -19,6 +19,12 @@ public class Utils {
     private static final String CHAVE_THE_GUARDIAN = "717bb387-af84-40dd-ab02-4cbc8ceec742";
     private static final String SHOW_FIELDS = "trailText,thumbnail";
     private static final String SECTION_TECHNOOGY = "technology";
+    private static final String SECTION_MONEY = "money";
+    private static final String SECTION_BUSINESS = "business";
+    private static final String SECTION_FOOTBALL = "football";
+    private static final String QUERY_BANKING = "banking OR bank OR cash machine";
+    private static final String QUERY_BRASIL = "brasil OR brazil";
+
     private static final String FORMAT = "json";
 
     public Utils() {
@@ -59,15 +65,46 @@ public class Utils {
 
         Uri.Builder uriBuilder = uriBase.buildUpon();
 
+        //Ultimas
         if (pesquisar.equals(context.getString(R.string.frag_ultimas))) {
             uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
             uriBuilder.appendQueryParameter("page", page);
         }
 
+        // Tecnologia
         if (pesquisar.equals(context.getString(R.string.frag_tecnologia))) {
             uriBuilder.appendQueryParameter("section", SECTION_TECHNOOGY);
             uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
         }
+
+        //Money
+        if (pesquisar.equals(context.getString(R.string.frag_money))) {
+            uriBuilder.appendQueryParameter("section", SECTION_MONEY);
+            uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
+        }
+
+        // Businnes
+        if (pesquisar.equals(context.getString(R.string.frag_business))) {
+            uriBuilder.appendQueryParameter("section", SECTION_BUSINESS);
+            uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
+        }
+        // Banking
+        if (pesquisar.equals(context.getString(R.string.frag_banking))) {
+            uriBuilder.appendQueryParameter("q", QUERY_BANKING);
+            uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
+        }
+        // Brasil
+        if (pesquisar.equals(context.getString(R.string.frag_brasil))) {
+            uriBuilder.appendQueryParameter("q", QUERY_BRASIL);
+            uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
+        }
+
+        // FootBal
+        if (pesquisar.equals(context.getString(R.string.frag_football))) {
+            uriBuilder.appendQueryParameter("section", SECTION_FOOTBALL);
+            uriBuilder.appendQueryParameter("show-fields", SHOW_FIELDS);
+        }
+
         uriBuilder.appendQueryParameter("order-by", ordem);
         uriBuilder.appendQueryParameter("format", FORMAT);
         uriBuilder.appendQueryParameter("page-size", pagesize);

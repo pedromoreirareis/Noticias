@@ -84,7 +84,8 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
     private String formatarHora(String dataHora) {
         String[] horaArray = dataHora.split(SEPARATOR_INICIO);
         String[] horaFormatando = horaArray[1].split(SEPARATOR_Z);
-        return horaFormatando[0];
+        String[] horaFormatando_Pontos = horaFormatando[0].split(SEPARATOR_PONTOS);
+        return horaFormatando_Pontos[0] + ":" + horaFormatando_Pontos[1];
     }
 
     public void setRecyclerViewOnClick(RecyclerViewOnClick recyclerViewOnClick) {

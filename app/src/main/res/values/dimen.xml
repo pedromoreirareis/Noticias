@@ -4,6 +4,7 @@
     <!-- Margens -->
     <dimen name="margem_16">16dp</dimen>
     <dimen name="margem_8">8dp</dimen>
+    <dimen name="margem_4">4dp</dimen>
 
     <!-- view_card -->
     <dimen name="radius_16">16dp</dimen>
@@ -11,6 +12,16 @@
     <dimen name="elevation_16">16dp</dimen>
     <dimen name="elevation_8">8dp</dimen>
 
+    <!-- TabLayout -->
+    <dimen name="tabHeight">2dp</dimen>
+    <dimen name="margem_tab">4dp</dimen>
+
+    <!-- Altura da View -->
+    <dimen name="viewHeight">4dp</dimen>
+
+
+    <!-- Imagem -->
+    <dimen name="imagemMinHeight">180dp</dimen>
 
 
 </resources>

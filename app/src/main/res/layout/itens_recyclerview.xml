@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:view_card="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,11 +9,9 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/cv_container"
+            style="@style/styleCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margem_16"
-            view_card:cardCornerRadius="@dimen/elevation_16"
-            view_card:cardElevation="@dimen/elevation_16">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -23,40 +20,35 @@
 
                 <ImageView
                     android:id="@+id/iv_imagem"
+                    style="@style/styleImagem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/imageDescription"
-                    android:minHeight="180dp"
-                    android:scaleType="centerCrop"
-                    tools:src="@drawable/sem_imagem" />
+                    tools:src="@drawable/servidor" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/viewHeight"
+                        android:background="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/tv_titulo"
+                        style="@style/styleTitulo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:fontFamily="sans-serif-condensed"
-                        android:maxLines="2"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textStyle="bold"
                         tools:text="Criminals behind cyber-attack have raised just $20,000, experts say" />
 
 
                     <TextView
                         android:id="@+id/tv_resumo"
+                        style="@style/styleResumo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:fontFamily="sans-serif-condensed"
-                        android:maxLines="4"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         tools:text="Firm investigating illicit activity identifies three associated bitcoin addresses but can’t trace individuals before funds are withdrawn" />
 
                     <LinearLayout
@@ -64,38 +56,35 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
                         android:paddingTop="8dp">
 
                         <TextView
                             android:id="@+id/tv_section"
+                            style="@style/styleDataHora"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:ellipsize="end"
-                            android:fontFamily="sans-serif-condensed"
-                            android:maxLines="1"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textStyle="bold" />
+                            tools:text="Technology" />
 
                         <TextView
                             android:id="@+id/tv_data"
+                            style="@style/styleDataHora"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:fontFamily="sans-serif-condensed"
                             android:gravity="center"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textStyle="bold" />
+                            tools:text="16/05/2017" />
 
                         <TextView
                             android:id="@+id/tv_hora"
+                            style="@style/styleDataHora"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:fontFamily="sans-serif-condensed"
                             android:gravity="end"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:textStyle="bold" />
+                            tools:text="23:06" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
