@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +16,17 @@ import android.widget.TextView;
 import com.pedromoreirareisgmail.noticias.databinding.ItensRecyclerviewBinding;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHolder> {
 
+    private static final String TAG = AdapterToViews.class.getSimpleName();
     private static final String SEPARATOR_INICIO = "T";
     private static final String SEPARATOR_DATA = "-";
     private static final String SEPARATOR_Z = "Z";
@@ -49,8 +56,10 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
 
         final Noticias noticiaAtual = mLista.get(position);
 
-        String data = formatarData(noticiaAtual.getmWebPublicationDate());
-        String hora = formatarHora(noticiaAtual.getmWebPublicationDate());
+        long horaLong = formatarHoraLong(noticiaAtual.getmWebPublicationDate());
+
+        String data = formatarData(horaLong);
+        String hora = formatarHora(horaLong);
 
         holder.tvTitulo.setText(noticiaAtual.getmWebTitle());
         holder.tvResumo.setText(noticiaAtual.getmTrailText());
@@ -73,19 +82,31 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
         return mLista.size();
     }
 
-    // Recebe uma string "2014-02-17T12:05:47Z" e retira a Data 17/02/2014
-    private String formatarData(String dataHora) {
-        String[] dataArray = dataHora.split(SEPARATOR_INICIO);
-        String[] dataFormatando = dataArray[0].split(SEPARATOR_DATA);
-        return dataFormatando[2] + "/" + dataFormatando[1] + "/" + dataFormatando[0];
+    private long formatarHoraLong(String dataHora) {
+
+        long horaLong = -1L;
+
+        SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
+
+        try {
+            Date parseDate = formatoData.parse(dataHora);
+
+            horaLong = parseDate.getTime() - 10800000;
+
+        } catch (ParseException e) {
+            Log.e(TAG, "Erro na formatação da data", e);
+        }
+
+        return horaLong;
     }
 
-    // Recebe uma string "2014-02-17T12:05:47Z" e retira a Hora 12:05:47
-    private String formatarHora(String dataHora) {
-        String[] horaArray = dataHora.split(SEPARATOR_INICIO);
-        String[] horaFormatando = horaArray[1].split(SEPARATOR_Z);
-        String[] horaFormatando_Pontos = horaFormatando[0].split(SEPARATOR_PONTOS);
-        return horaFormatando_Pontos[0] + ":" + horaFormatando_Pontos[1];
+    private String formatarData(long dataHora) {
+
+        return DateFormat.getDateInstance(DateFormat.MEDIUM).format(dataHora);
+    }
+
+    private String formatarHora(long dataHora) {
+        return DateFormat.getTimeInstance(DateFormat.SHORT).format(dataHora);
     }
 
     public void setRecyclerViewOnClick(RecyclerViewOnClick recyclerViewOnClick) {

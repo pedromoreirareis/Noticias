@@ -14,7 +14,7 @@
 
     <!-- TabLayout -->
     <dimen name="tabHeight">2dp</dimen>
-    <dimen name="margem_tab">4dp</dimen>
+    <dimen name="margem_tab">8dp</dimen>
 
     <!-- Altura da View -->
     <dimen name="viewHeight">4dp</dimen>
