@@ -1,6 +1,7 @@
 package com.pedromoreirareisgmail.noticias;
 
 import android.content.SharedPreferences;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -8,13 +9,24 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
+import com.pedromoreirareisgmail.noticias.databinding.ActivityConfiguracaoBinding;
 
 public class ConfiguracaoActivity extends AppCompatActivity {
+
+    private static final Boolean SIM = true;
+    private ActivityConfiguracaoBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracao);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_configuracao);
+
+
+        Toolbar toolbar = mBinding.tbToolbarFrag;
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(SIM);
     }
 
     public static class ConfiguracoesFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
