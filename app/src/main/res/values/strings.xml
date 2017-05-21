@@ -3,8 +3,8 @@
     <string name="config_label">Configurações</string>
 
     <!-- String mensagens -->
-    <string name="sem_internet">Não há conexão com a internet</string>
-    <string name="sem_dados">A pesquisa não retornou dados</string>
+    <string name="sem_internet">Não há conexão com a internet.</string>
+    <string name="sem_dados">A pesquisa não retornou dados.</string>
 
 
     <!-- Layout Recyclerview -->

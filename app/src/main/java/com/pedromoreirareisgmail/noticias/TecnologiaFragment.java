@@ -63,7 +63,7 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
 
         mAdapter.setRecyclerViewOnClick(this);
         recyclerView.setAdapter(mAdapter);
-        
+
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
         return mBinding.getRoot();

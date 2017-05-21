@@ -15,4 +15,7 @@
 
     <!-- Data Hora -->
     <color name="corBrancoDataHora">#FFFFFF</color>
+
+    <!-- Branco -->
+    <color name="corBranco">#FFFFFF</color>
 </resources>

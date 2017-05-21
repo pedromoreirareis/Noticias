@@ -13,19 +13,16 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark"
-            app:titleTextColor="#FFFFFF" />
+            app:theme="@style/myThemeToolbarConfig"
+            app:titleTextColor="@color/corBranco" />
 
         <fragment
             android:id="@+id/f_fragmentoConfig"
             android:name="com.pedromoreirareisgmail.noticias.ConfiguracaoActivity$ConfiguracoesFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="com.pedromoreirareisgmail.noticias.MainActivity">
+            tools:context="com.pedromoreirareisgmail.noticias.MainActivity" />
 
-
-        </fragment>
     </LinearLayout>
 </layout>

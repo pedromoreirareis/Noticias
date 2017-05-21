@@ -20,7 +20,7 @@
                 android:minHeight="?attr/actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-                app:titleTextColor="#FFFFFF">
+                app:titleTextColor="@color/corBranco">
 
             </android.support.v7.widget.Toolbar>
 

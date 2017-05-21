@@ -33,33 +33,34 @@ public class ExtrairJSON {
 
             JSONObject responseObj = root.getJSONObject("response");
             String status = responseObj.getString("status");
-            int currentPage = responseObj.getInt("currentPage");
 
             if (status.equals("ok")) {
 
-                JSONArray resultsArray = responseObj.getJSONArray("results");
+                int total = responseObj.getInt("total");
+                if (total > 0) {
+                    JSONArray resultsArray = responseObj.getJSONArray("results");
 
-                for (int i = 0; i < resultsArray.length(); i++) {
+                    for (int i = 0; i < resultsArray.length(); i++) {
 
-                    JSONObject noticiaAtual = resultsArray.getJSONObject(i);
+                        JSONObject noticiaAtual = resultsArray.getJSONObject(i);
 
-                    String sectionName = noticiaAtual.getString("sectionName");
+                        String sectionName = noticiaAtual.getString("sectionName");
 
-                    String webPublicationDate = noticiaAtual.getString("webPublicationDate");
+                        String webPublicationDate = noticiaAtual.getString("webPublicationDate");
 
-                    String webTitle = Html.fromHtml(noticiaAtual.getString("webTitle")).toString().replaceAll("\'", "");
+                        String webTitle = Html.fromHtml(noticiaAtual.getString("webTitle")).toString().replaceAll("\'", "");
 
-                    String webUrl = noticiaAtual.getString("webUrl");
+                        String webUrl = noticiaAtual.getString("webUrl");
 
-                    JSONObject fieldsObj = noticiaAtual.getJSONObject("fields");
+                        JSONObject fieldsObj = noticiaAtual.getJSONObject("fields");
 
-                    String trailText = Html.fromHtml(fieldsObj.getString("trailText")).toString().replaceAll("\'", "");
+                        String trailText = Html.fromHtml(fieldsObj.getString("trailText")).toString().replaceAll("\'", "");
 
-                    String thumbnail = fieldsObj.optString("thumbnail");
+                        String thumbnail = fieldsObj.optString("thumbnail");
 
-                    noticiasList.add(new Noticias(currentPage, sectionName, webPublicationDate, webTitle, webUrl, trailText, thumbnail));
+                        noticiasList.add(new Noticias(sectionName, webPublicationDate, webTitle, webUrl, trailText, thumbnail));
+                    }
                 }
-
 
             } else {
 

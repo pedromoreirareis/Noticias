@@ -1,105 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_container"
+        style="@style/styleCardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cv_container"
-            style="@style/styleCardView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_imagem"
+                style="@style/styleImagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/imageDescription" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?selectableItemBackground"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/iv_imagem"
-                    style="@style/styleImagem"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/imageDescription"
-                    android:foreground="@drawable/forenground_imagem"
-                    tools:src="@drawable/servidor" />
+                    android:layout_height="@dimen/viewHeight_4"
+                    android:background="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_titulo"
+                    style="@style/styleTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_section"
+                    style="@style/styleSecao"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="start|center" />
+
+                <TextView
+                    android:id="@+id/tv_resumo"
+                    style="@style/styleResumo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/viewHeight_1"
+                    android:background="@color/colorPrimary" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/viewHeight"
-                        android:background="@color/colorPrimary" />
-
-                    <TextView
-                        android:id="@+id/tv_titulo"
-                        style="@style/styleTitulo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="Criminals behind cyber-attack have raised just $20,000, experts say" />
+                    android:background="@drawable/background_datahora"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/margem_8"
+                    android:paddingTop="@dimen/margem_8">
 
 
                     <TextView
-                        android:id="@+id/tv_resumo"
-                        style="@style/styleResumo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="Firm investigating illicit activity identifies three associated bitcoin addresses but can’t trace individuals before funds are withdrawn" />
+                        android:id="@+id/tv_data"
+                        style="@style/styleDataHora"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="start" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorPrimary" />
+                    <TextView
+                        android:id="@+id/tv_hora"
+                        style="@style/styleDataHora"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|center"
+                        android:textColor="@color/corBranco" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_datahora"
-                        android:orientation="horizontal"
-                        android:paddingBottom="@dimen/margem_8"
-                        android:paddingTop="@dimen/margem_8">
-
-
-                        <TextView
-                            android:id="@+id/tv_section"
-                            style="@style/styleDataHora"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="4"
-                            android:gravity="start|center"
-                            tools:text="Technology" />
-
-                        <TextView
-                            android:id="@+id/tv_data"
-                            style="@style/styleDataHora"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="5"
-                            android:gravity="center|end"
-                            tools:text="16 de maio de 2017" />
-
-                        <TextView
-                            android:id="@+id/tv_hora"
-                            style="@style/styleDataHora"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="3"
-                            android:gravity="end|center"
-                            tools:text="3:06 PM" />
-
-                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
 </layout>

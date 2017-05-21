@@ -68,7 +68,6 @@ public class BankingFragment extends Fragment implements LoaderManager.LoaderCal
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
         return mBinding.getRoot();
-
     }
 
     @Override

@@ -68,7 +68,6 @@ public class BrasilFragment extends Fragment implements LoaderManager.LoaderCall
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
         return mBinding.getRoot();
-
     }
 
     @Override

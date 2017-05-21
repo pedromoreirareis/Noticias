@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Margens -->
+    <dimen name="margem_24">24dp</dimen>
     <dimen name="margem_16">16dp</dimen>
     <dimen name="margem_8">8dp</dimen>
     <dimen name="margem_4">4dp</dimen>
@@ -17,11 +18,13 @@
     <dimen name="margem_tab">8dp</dimen>
 
     <!-- Altura da View -->
-    <dimen name="viewHeight">4dp</dimen>
+    <dimen name="viewHeight_4">4dp</dimen>
+    <dimen name="viewHeight_2">2dp</dimen>
+    <dimen name="viewHeight_1">1dp</dimen>
 
 
     <!-- Imagem -->
-    <dimen name="imagemMinHeight">180dp</dimen>
+    <dimen name="imagemMinHeight">200dp</dimen>
 
 
 </resources>

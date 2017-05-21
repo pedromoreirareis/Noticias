@@ -68,7 +68,6 @@ public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallb
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
         return mBinding.getRoot();
-
     }
 
     @Override

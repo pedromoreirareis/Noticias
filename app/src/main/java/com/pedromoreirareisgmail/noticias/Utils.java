@@ -25,7 +25,6 @@ public class Utils {
     private static final String QUERY_BANKING = "banking OR bank OR cash machine";
     private static final String QUERY_BRASIL = "brasil OR brazil";
     private static final String QUERY_VAZIA = "";
-
     private static final String FORMAT = "json";
 
     public Utils() {

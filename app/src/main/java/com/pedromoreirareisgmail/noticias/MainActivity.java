@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = mBinding.tbToolbar;
         setSupportActionBar(toolbar);
 
-        AdapterPage adapterPage = new AdapterPage(this,getSupportFragmentManager());
+        AdapterPage adapterPage = new AdapterPage(this, getSupportFragmentManager());
 
         ViewPager pagina = mBinding.vpPagina;
         pagina.setAdapter(adapterPage);

@@ -1,6 +1,5 @@
 package com.pedromoreirareisgmail.noticias;
 
-import android.animation.AnimatorSet;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.CardView;
@@ -22,21 +21,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 
 public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHolder> {
 
     private static final String TAG = AdapterToViews.class.getSimpleName();
-    private static final String SEPARATOR_INICIO = "T";
-    private static final String SEPARATOR_DATA = "-";
-    private static final String SEPARATOR_Z = "Z";
-    private static final String SEPARATOR_PONTOS = ":";
     private ItensRecyclerviewBinding mBinding;
     private List<Noticias> mLista;
     private Context mContext;
-
-    private AnimatorSet mAnimatorSet = new AnimatorSet();
-
 
     private RecyclerViewOnClick mRecyclerViewOnClick;
 
@@ -87,11 +80,12 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
         long horaLong = -1L;
 
         SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
+        formatoData.setTimeZone(TimeZone.getTimeZone("GMT"));
+
 
         try {
             Date parseDate = formatoData.parse(dataHora);
-
-            horaLong = parseDate.getTime() - 10800000;
+            horaLong = parseDate.getTime();
 
         } catch (ParseException e) {
             Log.e(TAG, "Erro na formatação da data", e);
@@ -106,7 +100,7 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
     }
 
     private String formatarHora(long dataHora) {
-        return DateFormat.getTimeInstance(DateFormat.SHORT).format(dataHora);
+        return DateFormat.getTimeInstance(DateFormat.LONG).format(dataHora);
     }
 
     public void setRecyclerViewOnClick(RecyclerViewOnClick recyclerViewOnClick) {
