@@ -76,7 +76,7 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
 
             holder.urlLink = noticiaAtual.getmThumbnail();
 
-            new DownloadImageTask().execute(holder);
+            new downloadImageTask().execute(holder);
         }
     }
 
@@ -91,7 +91,6 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
 
         SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
         formatoData.setTimeZone(TimeZone.getTimeZone("GMT"));
-
 
         try {
             Date parseDate = formatoData.parse(dataHora);
@@ -156,7 +155,7 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
         }
     }
 
-    private class DownloadImageTask extends AsyncTask<MyViewHolder, Void, MyViewHolder> {
+    private class downloadImageTask extends AsyncTask<MyViewHolder, Void, MyViewHolder> {
         @Override
         protected MyViewHolder doInBackground(MyViewHolder... holderUrl) {
 

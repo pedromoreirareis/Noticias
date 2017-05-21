@@ -140,7 +140,6 @@ public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallb
         }
     }
 
-
     private void semInternet() {
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
@@ -150,7 +149,6 @@ public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallb
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.VISIBLE);
-
     }
 
     private void comInternet() {
@@ -158,6 +156,5 @@ public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallb
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.GONE);
-
     }
 }

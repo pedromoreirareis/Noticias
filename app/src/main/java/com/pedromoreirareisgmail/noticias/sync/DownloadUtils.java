@@ -19,7 +19,7 @@ public class DownloadUtils {
 
     private static final String TAG = DownloadUtils.class.getSimpleName();
 
-    public static List<Noticias> DownloadASyncTask(String urlSolicitacao) {
+    public static List<Noticias> downloadASyncTask(String urlSolicitacao) {
 
         if (urlSolicitacao == null) {
             return null;

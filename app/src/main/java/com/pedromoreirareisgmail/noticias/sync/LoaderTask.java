@@ -18,7 +18,7 @@ public class LoaderTask extends android.support.v4.content.AsyncTaskLoader {
 
     @Override
     public List<Noticias> loadInBackground() {
-        return DownloadUtils.DownloadASyncTask(mUrl);
+        return DownloadUtils.downloadASyncTask(mUrl);
     }
 
     @Override

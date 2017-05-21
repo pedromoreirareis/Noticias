@@ -151,7 +151,6 @@ public class BusinessFragment extends Fragment implements LoaderManager.LoaderCa
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.VISIBLE);
-
     }
 
     private void comInternet() {
@@ -159,6 +158,5 @@ public class BusinessFragment extends Fragment implements LoaderManager.LoaderCa
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.GONE);
-
     }
 }

@@ -40,7 +40,6 @@ public class BrasilFragment extends Fragment implements LoaderManager.LoaderCall
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.container_recyclerview, container, false);

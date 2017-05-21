@@ -24,7 +24,6 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_configuracao);
 
-
         Toolbar toolbar = mBinding.tbToolbarFrag;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(SIM);

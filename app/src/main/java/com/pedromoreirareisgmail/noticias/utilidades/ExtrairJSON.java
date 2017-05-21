@@ -34,11 +34,11 @@ public class ExtrairJSON {
             JSONObject root = new JSONObject(dadosJSON);
 
             JSONObject responseObj = root.getJSONObject("response");
-            String status = responseObj.getString("status");
+            String status = responseObj.optString("status");
 
             if (status.equals("ok")) {
 
-                int total = responseObj.getInt("total");
+                int total = responseObj.optInt("total");
                 if (total > 0) {
                     JSONArray resultsArray = responseObj.getJSONArray("results");
 
@@ -46,17 +46,17 @@ public class ExtrairJSON {
 
                         JSONObject noticiaAtual = resultsArray.getJSONObject(i);
 
-                        String sectionName = noticiaAtual.getString("sectionName");
+                        String sectionName = noticiaAtual.optString("sectionName");
 
-                        String webPublicationDate = noticiaAtual.getString("webPublicationDate");
+                        String webPublicationDate = noticiaAtual.optString("webPublicationDate");
 
-                        String webTitle = Html.fromHtml(noticiaAtual.getString("webTitle")).toString().replaceAll("\'", "");
+                        String webTitle = Html.fromHtml(noticiaAtual.optString("webTitle")).toString().replaceAll("\'", "");
 
-                        String webUrl = noticiaAtual.getString("webUrl");
+                        String webUrl = noticiaAtual.optString("webUrl");
 
                         JSONObject fieldsObj = noticiaAtual.getJSONObject("fields");
 
-                        String trailText = Html.fromHtml(fieldsObj.getString("trailText")).toString().replaceAll("\'", "");
+                        String trailText = Html.fromHtml(fieldsObj.optString("trailText")).toString().replaceAll("\'", "");
 
                         String thumbnail = fieldsObj.optString("thumbnail");
 

@@ -100,7 +100,6 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
             TextView tvMensagem = mBinding.tvMensagem;
             tvMensagem.setText(getString(R.string.sem_dados));
         }
-
     }
 
     public void restartLoader() {
@@ -140,7 +139,6 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
         }
     }
 
-
     private void semInternet() {
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
@@ -150,7 +148,6 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.VISIBLE);
-
     }
 
     private void comInternet() {
@@ -158,6 +155,5 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.GONE);
-
     }
 }
