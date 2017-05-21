@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pedromoreirareisgmail.noticias.R;
 import com.pedromoreirareisgmail.noticias.adapters.AdapterToViews;
@@ -33,11 +34,11 @@ public class BankingFragment extends Fragment implements LoaderManager.LoaderCal
     private int mPaginaAtual = 1;
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
+    private RecyclerView mRecyclerView;
 
     public BankingFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,29 +49,38 @@ public class BankingFragment extends Fragment implements LoaderManager.LoaderCal
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
 
-        final RecyclerView recyclerView = mBinding.rvList;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+        mRecyclerView = mBinding.rvList;
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 
-                LinearLayoutManager llm = (LinearLayoutManager) recyclerView.getLayoutManager();
+                LinearLayoutManager llm = (LinearLayoutManager) mRecyclerView.getLayoutManager();
 
                 if (mNoticias.size() == llm.findLastCompletelyVisibleItemPosition() + 1) {
 
-                    mPaginaAtual = mPaginaAtual + 1;
-                    restartLoader();
-                    Utils.progressBarEstado(true, mBinding);
+                    if (Utils.temInternet(getContext())) {
+                        mPaginaAtual = mPaginaAtual + 1;
+                        restartLoader();
+                        Utils.progressBarEstado(true, mBinding);
+                    } else {
+                        semInternet();
+                    }
+
                 }
             }
         });
 
         mAdapter.setRecyclerViewOnClick(this);
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
-        getLoaderManager().initLoader(LOADER_ID, null, this);
+        if (Utils.temInternet(getContext())) {
+            getLoaderManager().initLoader(LOADER_ID, null, this);
+        } else {
+            semInternet();
+        }
 
         return mBinding.getRoot();
     }
@@ -104,13 +114,51 @@ public class BankingFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void OnClickListener(int position) {
-        final Noticias noticiaAtual = mNoticias.get(position);
-        String url = noticiaAtual.getmWebUrl();
-        Uri webUrl = Uri.parse(url);
+        if (Utils.temInternet(getContext())) {
 
-        Intent webIntent = new Intent(Intent.ACTION_VIEW, webUrl);
-        if (webIntent.resolveActivity(getContext().getPackageManager()) != null) {
-            getContext().startActivity(webIntent);
+            final Noticias noticiaAtual = mNoticias.get(position);
+            String url = noticiaAtual.getmWebUrl();
+            Uri webUrl = Uri.parse(url);
+
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, webUrl);
+            if (webIntent.resolveActivity(getContext().getPackageManager()) != null) {
+                getContext().startActivity(webIntent);
+            }
+        } else {
+            Toast.makeText(getContext(), getString(R.string.sem_internet), Toast.LENGTH_LONG).show();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (Utils.temInternet(getContext())) {
+            comInternet();
+        } else {
+            semInternet();
+        }
+    }
+
+
+    private void semInternet() {
+        mNoticias = new ArrayList<>();
+        mAdapter = new AdapterToViews(getContext(), mNoticias);
+        mRecyclerView.setAdapter(mAdapter);
+        Utils.progressBarEstado(false, mBinding);
+
+        TextView tvMensagem = mBinding.tvMensagem;
+        tvMensagem.setText(getString(R.string.sem_internet));
+        tvMensagem.setVisibility(View.VISIBLE);
+
+    }
+
+    private void comInternet() {
+        Utils.progressBarEstado(false, mBinding);
+        TextView tvMensagem = mBinding.tvMensagem;
+        tvMensagem.setText(getString(R.string.sem_internet));
+        tvMensagem.setVisibility(View.GONE);
+
+    }
+
 }
