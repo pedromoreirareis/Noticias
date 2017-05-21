@@ -2,6 +2,9 @@ package com.pedromoreirareisgmail.noticias;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -13,8 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pedromoreirareisgmail.noticias.databinding.ItensRecyclerviewBinding;
-import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,7 +71,10 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
 
         } else {
             holder.ivImagem.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Picasso.with(mContext).load(noticiaAtual.getmThumbnail()).into(holder.ivImagem);
+
+            holder.urlLink = noticiaAtual.getmThumbnail();
+
+            new DownloadImageTask().execute(holder);
         }
     }
 
@@ -121,6 +129,9 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
         TextView tvSection;
         CardView cvContainer;
 
+        private String urlLink;
+        private Object bitmap;
+
         public MyViewHolder(View itemView) {
             super(itemView);
 
@@ -139,6 +150,37 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
 
             if (itemView.getId() == R.id.cv_container) {
                 mRecyclerViewOnClick.OnClickListener(getAdapterPosition());
+            }
+        }
+    }
+
+    private class DownloadImageTask extends AsyncTask<MyViewHolder, Void, MyViewHolder> {
+        @Override
+        protected MyViewHolder doInBackground(MyViewHolder... holderUrl) {
+
+            MyViewHolder holder = holderUrl[0];
+
+            try {
+                URL urlImagem = new URL(holder.urlLink);
+
+                holder.bitmap = BitmapFactory.decodeStream(urlImagem.openStream());
+
+            } catch (MalformedURLException e) {
+                Log.e(TAG, "Erro ao criar a url da imagem", e);
+            } catch (IOException e) {
+                Log.e(TAG, "Erro ao abrir a conexão da url da imagem", e);
+
+                holder.bitmap = null;
+            }
+
+            return holder;
+        }
+
+        @Override
+        protected void onPostExecute(MyViewHolder holder) {
+
+            if (holder != null) {
+                holder.ivImagem.setImageBitmap((Bitmap) holder.bitmap);
             }
         }
     }
