@@ -1,6 +1,8 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.sync;
 
 import android.content.Context;
+
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
 
 import java.util.List;
 

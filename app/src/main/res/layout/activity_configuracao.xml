@@ -19,10 +19,10 @@
 
         <fragment
             android:id="@+id/f_fragmentoConfig"
-            android:name="com.pedromoreirareisgmail.noticias.ConfiguracaoActivity$ConfiguracoesFragment"
+            android:name="com.pedromoreirareisgmail.noticias.activitys.ConfiguracaoActivity$ConfiguracoesFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="com.pedromoreirareisgmail.noticias.MainActivity" />
+            tools:context="com.pedromoreirareisgmail.noticias.activitys.MainActivity" />
 
     </LinearLayout>
 </layout>

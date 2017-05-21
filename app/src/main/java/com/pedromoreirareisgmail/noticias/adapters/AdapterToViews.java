@@ -1,4 +1,4 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.adapters;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pedromoreirareisgmail.noticias.R;
 import com.pedromoreirareisgmail.noticias.databinding.ItensRecyclerviewBinding;
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

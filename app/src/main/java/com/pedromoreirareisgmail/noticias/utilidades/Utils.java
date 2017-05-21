@@ -1,4 +1,4 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.utilidades;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.pedromoreirareisgmail.noticias.R;
 import com.pedromoreirareisgmail.noticias.databinding.ContainerRecyclerviewBinding;
 
 import static android.view.View.GONE;

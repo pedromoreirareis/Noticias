@@ -1,4 +1,4 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.fragments;
 
 
 import android.content.Intent;
@@ -16,7 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.pedromoreirareisgmail.noticias.R;
+import com.pedromoreirareisgmail.noticias.adapters.AdapterToViews;
 import com.pedromoreirareisgmail.noticias.databinding.ContainerRecyclerviewBinding;
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
+import com.pedromoreirareisgmail.noticias.sync.LoaderTask;
+import com.pedromoreirareisgmail.noticias.utilidades.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

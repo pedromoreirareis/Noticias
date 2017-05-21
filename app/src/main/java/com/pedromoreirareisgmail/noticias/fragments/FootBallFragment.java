@@ -1,4 +1,4 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.fragments;
 
 
 import android.content.Intent;
@@ -16,21 +16,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.pedromoreirareisgmail.noticias.R;
+import com.pedromoreirareisgmail.noticias.adapters.AdapterToViews;
 import com.pedromoreirareisgmail.noticias.databinding.ContainerRecyclerviewBinding;
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
+import com.pedromoreirareisgmail.noticias.sync.LoaderTask;
+import com.pedromoreirareisgmail.noticias.utilidades.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class FootBallFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
 
-public class BusinessFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
-
-    private static final int LOADER_ID = 3;
+    private static final int LOADER_ID = 4;
     private ContainerRecyclerviewBinding mBinding;
     private int mPaginaAtual = 1;
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
 
-    public BusinessFragment() {
+    public FootBallFragment() {
         // Required empty public constructor
     }
 
@@ -73,7 +77,7 @@ public class BusinessFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public Loader<List<Noticias>> onCreateLoader(int id, Bundle args) {
         String page = String.valueOf(mPaginaAtual);
-        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_business)));
+        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_football)));
     }
 
     @Override
@@ -91,6 +95,7 @@ public class BusinessFragment extends Fragment implements LoaderManager.LoaderCa
     public void restartLoader() {
         getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
+
 
     @Override
     public void onLoaderReset(Loader<List<Noticias>> loader) {

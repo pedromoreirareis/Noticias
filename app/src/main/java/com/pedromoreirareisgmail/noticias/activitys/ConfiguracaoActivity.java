@@ -1,4 +1,4 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.activitys;
 
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.pedromoreirareisgmail.noticias.R;
 import com.pedromoreirareisgmail.noticias.databinding.ActivityConfiguracaoBinding;
 
 public class ConfiguracaoActivity extends AppCompatActivity {

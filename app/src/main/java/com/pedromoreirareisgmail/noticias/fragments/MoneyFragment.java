@@ -1,4 +1,5 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.fragments;
+
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -15,26 +16,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.pedromoreirareisgmail.noticias.R;
+import com.pedromoreirareisgmail.noticias.adapters.AdapterToViews;
 import com.pedromoreirareisgmail.noticias.databinding.ContainerRecyclerviewBinding;
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
+import com.pedromoreirareisgmail.noticias.sync.LoaderTask;
+import com.pedromoreirareisgmail.noticias.utilidades.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UltimasFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
+public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<Noticias>>, AdapterToViews.RecyclerViewOnClick {
 
-    private static final int LOADER_ID = 0;
+    private static final int LOADER_ID = 6;
     private ContainerRecyclerviewBinding mBinding;
     private int mPaginaAtual = 1;
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
 
-    public UltimasFragment() {
+    public MoneyFragment() {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         mBinding = DataBindingUtil.inflate(inflater, R.layout.container_recyclerview, container, false);
 
         Utils.progressBarEstado(true, mBinding);
@@ -62,30 +68,21 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
         });
 
         mAdapter.setRecyclerViewOnClick(this);
-
         recyclerView.setAdapter(mAdapter);
 
-        if (Utils.temInternet(getContext())) {
-            getLoaderManager().initLoader(LOADER_ID, null, this);
-        } else {
-            Utils.progressBarEstado(false, mBinding);
-            TextView tvMensagem = mBinding.tvMensagem;
-            tvMensagem.setText(getString(R.string.sem_internet));
-        }
+        getLoaderManager().initLoader(LOADER_ID, null, this);
 
         return mBinding.getRoot();
     }
 
     @Override
     public Loader<List<Noticias>> onCreateLoader(int id, Bundle args) {
-
         String page = String.valueOf(mPaginaAtual);
-        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_ultimas)));
+        return new LoaderTask(getContext(), Utils.preparaUrlPesquisa(page, getContext(), getString(R.string.frag_money)));
     }
 
     @Override
     public void onLoadFinished(Loader<List<Noticias>> loader, List<Noticias> data) {
-
         if (data != null) {
             mNoticias.addAll(data);
             mAdapter.notifyDataSetChanged();
@@ -96,17 +93,17 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
         }
     }
 
-    @Override
-    public void onLoaderReset(Loader<List<Noticias>> loader) {
-    }
-
     public void restartLoader() {
         getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override
-    public void OnClickListener(int position) {
+    public void onLoaderReset(Loader<List<Noticias>> loader) {
 
+    }
+
+    @Override
+    public void OnClickListener(int position) {
         final Noticias noticiaAtual = mNoticias.get(position);
         String url = noticiaAtual.getmWebUrl();
         Uri webUrl = Uri.parse(url);

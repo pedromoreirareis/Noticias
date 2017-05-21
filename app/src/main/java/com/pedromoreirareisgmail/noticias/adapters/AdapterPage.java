@@ -1,9 +1,18 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.adapters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.pedromoreirareisgmail.noticias.R;
+import com.pedromoreirareisgmail.noticias.fragments.BankingFragment;
+import com.pedromoreirareisgmail.noticias.fragments.BrasilFragment;
+import com.pedromoreirareisgmail.noticias.fragments.BusinessFragment;
+import com.pedromoreirareisgmail.noticias.fragments.FootBallFragment;
+import com.pedromoreirareisgmail.noticias.fragments.MoneyFragment;
+import com.pedromoreirareisgmail.noticias.fragments.TecnologiaFragment;
+import com.pedromoreirareisgmail.noticias.fragments.UltimasFragment;
 
 public class AdapterPage extends FragmentPagerAdapter {
 

@@ -1,6 +1,9 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.sync;
 
 import android.util.Log;
+
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
+import com.pedromoreirareisgmail.noticias.utilidades.ExtrairJSON;
 
 import java.io.BufferedReader;
 import java.io.IOException;

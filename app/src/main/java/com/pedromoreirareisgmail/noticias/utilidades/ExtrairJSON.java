@@ -1,9 +1,11 @@
-package com.pedromoreirareisgmail.noticias;
+package com.pedromoreirareisgmail.noticias.utilidades;
 
 
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.pedromoreirareisgmail.noticias.noticia.Noticias;
 
 import org.json.JSONArray;
 import org.json.JSONException;
