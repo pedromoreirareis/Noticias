@@ -36,7 +36,7 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
     private RecyclerView mRecyclerView;
 
     public UltimasFragment() {
-        // Required empty public constructor
+        // Required empty public construtor
     }
 
     @Override
