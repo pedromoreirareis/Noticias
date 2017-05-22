@@ -78,7 +78,6 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
 
         if (Utils.temInternet(getContext())) {
             getLoaderManager().initLoader(LOADER_ID, null, this);
-            getLoaderManager().restartLoader(LOADER_ID, null, this);
         } else {
             semInternet();
         }
@@ -161,7 +160,6 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
     private void comInternet() {
         Utils.progressBarEstado(false, mBinding);
         TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.GONE);
     }
 }

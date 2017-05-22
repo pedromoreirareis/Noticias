@@ -159,7 +159,6 @@ public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallb
     private void comInternet() {
         Utils.progressBarEstado(false, mBinding);
         TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.GONE);
     }
 }

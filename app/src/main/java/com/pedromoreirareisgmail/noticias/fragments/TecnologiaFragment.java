@@ -145,10 +145,10 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
     }
 
     private void semInternet() {
+        Utils.progressBarEstado(false, mBinding);
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
         mRecyclerView.setAdapter(mAdapter);
-        Utils.progressBarEstado(false, mBinding);
 
         TextView tvMensagem = mBinding.tvMensagem;
         tvMensagem.setText(getString(R.string.sem_internet));
@@ -158,7 +158,6 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
     private void comInternet() {
         Utils.progressBarEstado(false, mBinding);
         TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setText(getString(R.string.sem_internet));
         tvMensagem.setVisibility(View.GONE);
     }
 }
