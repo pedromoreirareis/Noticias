@@ -156,9 +156,9 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
     }
 
     private class downloadImageTask extends AsyncTask<MyViewHolder, Void, MyViewHolder> {
+
         @Override
         protected MyViewHolder doInBackground(MyViewHolder... holderUrl) {
-
             MyViewHolder holder = holderUrl[0];
 
             try {
@@ -179,7 +179,6 @@ public class AdapterToViews extends RecyclerView.Adapter<AdapterToViews.MyViewHo
 
         @Override
         protected void onPostExecute(MyViewHolder holder) {
-
             if (holder != null) {
                 holder.ivImagem.setImageBitmap((Bitmap) holder.bitmap);
             }

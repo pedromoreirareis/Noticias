@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="myThemeToolbarConfig" parent="AppTheme">
+        <item name="android:colorControlNormal">@color/corBranco</item>
+    </style>
+
+    <style name="styleTabBar" parent="Widget.Design.TabLayout">
+        <item name="tabMode">scrollable</item>
+        <item name="tabIndicatorHeight">@dimen/tabHeight</item>
+        <item name="tabIndicatorColor">@color/tabIndicatorColor</item>
+        <item name="tabTextAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="tabSelectedTextColor">@color/tabSelectColor</item>
+        <item name="tabPaddingEnd">@dimen/margem_tab</item>
+        <item name="tabPaddingStart">@dimen/margem_tab</item>
+        <item name="tabBackground">?android:selectableItemBackground</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="styleCardView" parent="CardView">
+        <item name="android:layout_marginLeft">@dimen/margem_16</item>
+        <item name="android:layout_marginRight">@dimen/margem_16</item>
+        <item name="android:layout_marginBottom">@dimen/margem_8</item>
+        <item name="android:layout_marginTop">@dimen/margem_8</item>
+        <item name="android:clickable">true</item>
+        <item name="cardCornerRadius">@dimen/radius_8</item>
+        <item name="cardElevation">@dimen/elevation_8</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="styleImagem">
+        <item name="android:minHeight">@dimen/imagemMinHeight</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- <style name="styleTitulo" parent="TextAppearance.AppCompat.Body1"> -->
+    <style name="styleTitulo" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:paddingLeft">@dimen/margem_16</item>
+        <item name="android:paddingRight">@dimen/margem_16</item>
+        <item name="android:paddingTop">@dimen/margem_8</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- -->
+    <style name="styleSecao">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">@dimen/margem_16</item>
+        <item name="android:paddingRight">@dimen/margem_16</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:paddingTop">@dimen/margem_8</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- <style name="styleResumo" parent="TextAppearance.AppCompat.Caption"> -->
+    <style name="styleResumo" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:paddingTop">@dimen/margem_8</item>
+        <item name="android:paddingLeft">@dimen/margem_16</item>
+        <item name="android:paddingRight">@dimen/margem_16</item>
+        <item name="android:paddingBottom">@dimen/margem_8</item>
+    </style>
+
+
+    <style name="styleDataHora">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/corBranco</item>
+        <item name="android:paddingLeft">@dimen/margem_16</item>
+        <item name="android:paddingRight">@dimen/margem_16</item>
+        <item name="android:paddingStart">@dimen/margem_16</item>
+        <item name="android:paddingEnd">@dimen/margem_16</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+</resources>

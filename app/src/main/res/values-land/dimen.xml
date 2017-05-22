@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margens -->
+    <dimen name="margem_24">24dp</dimen>
+    <dimen name="margem_16">16dp</dimen>
+    <dimen name="margem_8">8dp</dimen>
+    <dimen name="margem_4">4dp</dimen>
+
+    <!-- view_card -->
+    <dimen name="radius_16">16dp</dimen>
+    <dimen name="radius_8">8dp</dimen>
+    <dimen name="elevation_16">16dp</dimen>
+    <dimen name="elevation_8">8dp</dimen>
+
+    <!-- TabLayout -->
+    <dimen name="tabHeight">2dp</dimen>
+    <dimen name="margem_tab">8dp</dimen>
+
+
+    <!-- Imagem -->
+    <dimen name="imagemMinHeight">150dp</dimen>
+
+</resources>
