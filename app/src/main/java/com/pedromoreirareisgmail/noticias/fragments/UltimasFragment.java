@@ -34,6 +34,7 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
     private RecyclerView mRecyclerView;
+    private TextView mTvMensagem;
 
     public UltimasFragment() {
         // Required empty public construtor
@@ -45,6 +46,8 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
         mBinding = DataBindingUtil.inflate(inflater, R.layout.container_recyclerview, container, false);
 
         Utils.progressBarEstado(true, mBinding);
+
+        mTvMensagem = mBinding.tvMensagem;
 
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
@@ -63,6 +66,7 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
 
                     if (Utils.temInternet(getContext())) {
                         mPaginaAtual = mPaginaAtual + 1;
+                        mTvMensagem.setVisibility(View.GONE);
                         restartLoader();
                         Utils.progressBarEstado(true, mBinding);
                     } else {
@@ -77,6 +81,7 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
         mRecyclerView.setAdapter(mAdapter);
 
         if (Utils.temInternet(getContext())) {
+            mTvMensagem.setVisibility(View.GONE);
             getLoaderManager().initLoader(LOADER_ID, null, this);
         } else {
             semInternet();
@@ -100,8 +105,7 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
             mAdapter.notifyDataSetChanged();
             Utils.progressBarEstado(false, mBinding);
         } else {
-            TextView tvMensagem = mBinding.tvMensagem;
-            tvMensagem.setText(getString(R.string.sem_dados));
+            mTvMensagem.setText(getString(R.string.sem_dados));
         }
     }
 
@@ -112,6 +116,7 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
     public void restartLoader() {
 
         if (Utils.temInternet(getContext())) {
+            mTvMensagem.setVisibility(View.GONE);
             getLoaderManager().restartLoader(LOADER_ID, null, this);
         } else {
             semInternet();
@@ -152,14 +157,12 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
         mRecyclerView.setAdapter(mAdapter);
         Utils.progressBarEstado(false, mBinding);
 
-        TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setText(getString(R.string.sem_internet));
-        tvMensagem.setVisibility(View.VISIBLE);
+        mTvMensagem.setText(getString(R.string.sem_internet));
+        mTvMensagem.setVisibility(View.VISIBLE);
     }
 
     private void comInternet() {
         Utils.progressBarEstado(false, mBinding);
-        TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setVisibility(View.GONE);
+        mTvMensagem.setVisibility(View.GONE);
     }
 }

@@ -35,6 +35,7 @@ public class FootBallFragment extends Fragment implements LoaderManager.LoaderCa
     private List<Noticias> mNoticias;
     private AdapterToViews mAdapter;
     private RecyclerView mRecyclerView;
+    private TextView mTvMensagem;
 
     public FootBallFragment() {
         // Required empty public constructor
@@ -45,6 +46,8 @@ public class FootBallFragment extends Fragment implements LoaderManager.LoaderCa
         mBinding = DataBindingUtil.inflate(inflater, R.layout.container_recyclerview, container, false);
 
         Utils.progressBarEstado(true, mBinding);
+
+        mTvMensagem = mBinding.tvMensagem;
 
         mNoticias = new ArrayList<>();
         mAdapter = new AdapterToViews(getContext(), mNoticias);
@@ -63,6 +66,7 @@ public class FootBallFragment extends Fragment implements LoaderManager.LoaderCa
 
                     if (Utils.temInternet(getContext())) {
                         mPaginaAtual = mPaginaAtual + 1;
+                        mTvMensagem.setVisibility(View.GONE);
                         restartLoader();
                         Utils.progressBarEstado(true, mBinding);
                     } else {
@@ -76,6 +80,7 @@ public class FootBallFragment extends Fragment implements LoaderManager.LoaderCa
         mRecyclerView.setAdapter(mAdapter);
 
         if (Utils.temInternet(getContext())) {
+            mTvMensagem.setVisibility(View.GONE);
             getLoaderManager().initLoader(LOADER_ID, null, this);
         } else {
             semInternet();
@@ -97,14 +102,14 @@ public class FootBallFragment extends Fragment implements LoaderManager.LoaderCa
             mAdapter.notifyDataSetChanged();
             Utils.progressBarEstado(false, mBinding);
         } else {
-            TextView tvMensagem = mBinding.tvMensagem;
-            tvMensagem.setText(getString(R.string.sem_dados));
+            mTvMensagem.setText(getString(R.string.sem_dados));
         }
     }
 
     public void restartLoader() {
 
         if (Utils.temInternet(getContext())) {
+            mTvMensagem.setVisibility(View.GONE);
             getLoaderManager().restartLoader(LOADER_ID, null, this);
         } else {
             semInternet();
@@ -152,14 +157,12 @@ public class FootBallFragment extends Fragment implements LoaderManager.LoaderCa
         mRecyclerView.setAdapter(mAdapter);
         Utils.progressBarEstado(false, mBinding);
 
-        TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setText(getString(R.string.sem_internet));
-        tvMensagem.setVisibility(View.VISIBLE);
+        mTvMensagem.setText(getString(R.string.sem_internet));
+        mTvMensagem.setVisibility(View.VISIBLE);
     }
 
     private void comInternet() {
         Utils.progressBarEstado(false, mBinding);
-        TextView tvMensagem = mBinding.tvMensagem;
-        tvMensagem.setVisibility(View.GONE);
+        mTvMensagem.setVisibility(View.GONE);
     }
 }
