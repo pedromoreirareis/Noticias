@@ -103,7 +103,12 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
     }
 
     public void restartLoader() {
-        getLoaderManager().restartLoader(LOADER_ID, null, this);
+
+        if (Utils.temInternet(getContext())) {
+            getLoaderManager().restartLoader(LOADER_ID, null, this);
+        } else {
+            semInternet();
+        }
     }
 
     @Override
