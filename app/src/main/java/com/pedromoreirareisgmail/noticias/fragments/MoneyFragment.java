@@ -103,7 +103,10 @@ public class MoneyFragment extends Fragment implements LoaderManager.LoaderCallb
             mAdapter.notifyDataSetChanged();
             Utils.progressBarEstado(false, mBinding);
         } else {
-            mTvMensagem.setText(getString(R.string.sem_dados));
+
+            if (Utils.temInternet(getContext())) {
+                mTvMensagem.setText(getString(R.string.sem_dados));
+            }
         }
     }
 

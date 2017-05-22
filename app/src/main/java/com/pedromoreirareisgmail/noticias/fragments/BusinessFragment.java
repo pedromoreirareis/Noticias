@@ -104,7 +104,10 @@ public class BusinessFragment extends Fragment implements LoaderManager.LoaderCa
             mAdapter.notifyDataSetChanged();
             Utils.progressBarEstado(false, mBinding);
         } else {
-            mTvMensagem.setText(getString(R.string.sem_dados));
+
+            if (Utils.temInternet(getContext())) {
+                mTvMensagem.setText(getString(R.string.sem_dados));
+            }
         }
     }
 

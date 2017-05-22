@@ -105,7 +105,10 @@ public class UltimasFragment extends Fragment implements LoaderManager.LoaderCal
             mAdapter.notifyDataSetChanged();
             Utils.progressBarEstado(false, mBinding);
         } else {
-            mTvMensagem.setText(getString(R.string.sem_dados));
+
+            if (Utils.temInternet(getContext())) {
+                mTvMensagem.setText(getString(R.string.sem_dados));
+            }
         }
     }
 

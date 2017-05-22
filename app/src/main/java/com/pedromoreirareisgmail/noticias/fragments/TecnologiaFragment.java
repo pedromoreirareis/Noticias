@@ -103,7 +103,9 @@ public class TecnologiaFragment extends Fragment implements LoaderManager.Loader
             Utils.progressBarEstado(false, mBinding);
         } else {
 
-            mTvMensagem.setText(getString(R.string.sem_dados));
+            if (Utils.temInternet(getContext())) {
+                mTvMensagem.setText(getString(R.string.sem_dados));
+            }
         }
     }
 
